@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function(){
 
+    //* INDEX
     Route::get('/',function(){return view('admin.pages.dashboard');})->name('admin.home');
+    Route::get('menus',[MenuController::class,'index'])->name('admin.get.menu');
+
+    //* STORE
+    Route::post('menus',[MenuController::class,'store'])->name('admin.store.menu');
+
+    //* UPDATE
+    Route::post('menu/name/{link}',[MenuController::class,'updateName'])->name('admin.update.menu.name');
+    Route::post('menu/number/{id}',[MenuController::class,'updateNumber'])->name('admin.update.menu.number');
+
+    //* DESTROY
+    Route::get('menu/{link}',[MenuController::class,'delete'])->name('admin.delete.menu');
 
 });
