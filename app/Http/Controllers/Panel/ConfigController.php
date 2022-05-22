@@ -14,13 +14,14 @@ class ConfigController extends Controller
    {
         Schema::create($link, function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu')->constrained('menus')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('menuid')->constrained('menus')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->text('content');
             $table->string('key')->nullable();
             $table->string('desc')->nullable();
             $table->string('image')->nullable();
             $table->integer('number');
+            $table->enum('status',[true,false])->default(true);
             $table->timestamps();
         });
 
@@ -39,7 +40,7 @@ class ConfigController extends Controller
     
                 public function menu()
                 {
-                    return $this->hasOne(Menu::class,"id","menu");
+                    return $this->hasOne(Menu::class,"id","menuid");
                 }
             }';
         File::put(app_path('Models').'/'.ucfirst($link).'.php',$model_script);
@@ -76,4 +77,28 @@ class ConfigController extends Controller
             }';
         File::put(app_path('Models').'/'.ucfirst($new_link).'.php',$model_script);
    }
+
+   public function dynamicModel($link)
+   {
+       return "App\Models\\".ucfirst($link);
+   }
+
+   public function upload($path,$img)
+    {
+        // $path = 'about'
+        $imgname=time().uniqid().".".$img->extension();
+        $img->move(public_path('upload/'.$path.'/'),$imgname); // PATH = 'upload/about/'
+        $imgpath='upload/'.$path.'/'.$imgname;
+        return $imgpath;
+    }
+
+    public function imgDelete($img)
+    {
+        try {
+            unlink(public_path($img));
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        } 
+    }
 }

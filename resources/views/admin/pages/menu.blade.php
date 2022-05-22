@@ -56,7 +56,7 @@
                                     {{$menu->name}} 
                                 </a>
                             </td>
-                            <td>{{$menu->link}}</td>
+                            <td><a href="{{route('admin.get.page',$menu->link)}}">{{$menu->link}}</a></td>
                             
                             <td>
                                 <a href="{{route('admin.delete.menu',$menu->link)}}" class="btn btn-outline-danger"><i class="icon-trash font-weight-bold"></i></a>

@@ -13,7 +13,7 @@ class PageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,14 @@ class PageRequest extends FormRequest
      */
     public function rules()
     {
+        $this->offsetUnset('_token');
         return [
-            //
+            'menuid' => 'required',
+            'title' => 'required',
+            'number' => ['required','integer'],
+            'content' => 'required',
+            'key'=>'nullable',
+            'desc' => 'nullable'
         ];
     }
 }

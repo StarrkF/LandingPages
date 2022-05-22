@@ -23,6 +23,7 @@
   <link href="{{ asset('panel/assets/css/sidebar-menu.css') }}" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="{{ asset('panel/assets/css/app-style.css') }}" rel="stylesheet"/>
+  <link href="{{ asset('panel/assets/css/tool.css') }}" rel="stylesheet"/>
   @yield('css')
   
 </head>
@@ -72,6 +73,16 @@
  
   <!-- Index js -->
   <script src="{{ asset('panel/assets/js/index.js') }}"></script>
+  <script src="{{ asset('panel/assets/js/tool.js') }}"></script>
+  <script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+	</script>
+
+<script>
+tinymce.init({
+  selector:'textarea',
+  height: 600,
+  });
+</script>
   @yield('js')
 
   

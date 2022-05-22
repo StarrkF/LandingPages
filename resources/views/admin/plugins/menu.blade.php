@@ -21,7 +21,7 @@
 
      @foreach ($menus as $menu)
      <li>
-      <a href="#">
+      <a href="{{route('admin.get.page',$menu->link)}}">
         <i class="zmdi zmdi-view-dashboard"></i> <span>{{$menu->name}}</span>
       </a>
     </li>

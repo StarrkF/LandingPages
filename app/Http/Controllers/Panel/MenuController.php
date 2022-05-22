@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Requests\Panel\MenuRequest;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
@@ -29,6 +30,7 @@ class MenuController extends ConfigController
     {
         Menu::where('link',$link)->delete();
         $this->deleteDBmodel($link);
+        File::deleteDirectory(public_path('upload\\'.$link));
         return back();
     }
 
