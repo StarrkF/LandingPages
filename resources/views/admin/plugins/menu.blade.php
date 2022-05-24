@@ -5,8 +5,7 @@
   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
      <a href="#">
-      <img src="{{ asset('panel/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
-      <h5 class="logo-text">Dashtreme Admin</h5>
+       <img src="{{ asset('panel/assets/images/admin-logo.png') }}" class="img-width" alt="logo icon">
     </a>
   </div>
   <ul class="sidebar-menu do-nicescrol">

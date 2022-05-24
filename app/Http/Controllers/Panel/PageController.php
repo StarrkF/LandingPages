@@ -51,20 +51,29 @@ class PageController extends ConfigController
 
     public function update($link,$id,PageRequest $request)
     {
+        
         $model=$this->dynamicModel($link)::where('id',$id);
         $img=$request->image;
-        if($model->first()->image)
-        {
-            $this->imgDelete($model->first()->image);
-        }
-
         if($img)
         {
+            if($model->first()->image)
+            {
+                $this->imgDelete($model->first()->image);
+            }
+
             $img=$this->upload($link,$img);
             $model->update($request->validated()+['image'=>$img]); 
             return redirect()->route('admin.get.page',$link);
         }
         $model->update($request->validated());
         return redirect()->route('admin.get.page',$link);
+    }
+
+    public function changeStatus($link,$id,Request $request)
+    {
+        $model=$this->dynamicModel($link)::where('id',$id);
+        $result=$model->update(['status' => $request->status]);
+        $status=$model->first()->status;
+        return $result ? $status  : "Error";
     }
 }

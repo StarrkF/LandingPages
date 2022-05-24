@@ -1,6 +1,6 @@
 @extends('admin.index')
-@section('content')
 
+@section('content')
 <div class="card">
     <div class="card-body">
         <div class="row">
@@ -12,8 +12,9 @@
             </div>
             @include('admin.pages.menu-content.insert')
         </div>
-        
+        @include('admin.pages.modals.ok-modal')
         <hr>
+        <div class="table-responsive">
         <table class="table table-hover table-image">
            <thead>
              <tr>
@@ -31,22 +32,72 @@
                    <td><img src="{{ asset($page->image) }}" class="img-thumbnail img-width"></td>
                    <td>{{$page->number}}</td>
                    <td>{{$page->title}}</td>
-                   <td>{!!$page->content!!}</td>
+                   <td>{!! Str::length(strip_tags($page->content))>50 ?  Str::substr(strip_tags($page->content), 0,50)."..." : $page->content !!}</td>
                    <td>
                     <div class="custom-control custom-switch">
-                      <input type="checkbox" class="custom-control-input" {{$page->status==1 ? 'checked' : ''}} id="customSwitches">
-                      <label class="custom-control-label" for="customSwitches"></label>
+                      <input type="checkbox" class="custom-control-input" {{$page->status==1 ? 'checked' : ''}} id="status" value="{{$page->id}}">
+                      <label class="custom-control-label" for="status"></label>
                     </div> 
                    </td>
                    <td>
-                       <a href="{{route('admin.delete.page',[$menu->link,$page->id])}}" class="btn btn-outline-danger"><i class="icon-trash font-weight-bold"></i></a>
                        <a href="{{route('admin.show.page',[$menu->link,$page->id])}}" class="btn btn-outline-success"><i class="icon-pencil font-weight-bold"></i></a>
+                       <a href="{{route('admin.delete.page',[$menu->link,$page->id])}}" class="btn btn-outline-danger"><i class="icon-trash font-weight-bold"></i></a>
                    </td>
                 </tr>
                @endforeach
              
            </tbody>
          </table>
+        </div>
      </div>
 </div>
+@endsection
+@section('js')
+<script>
+
+function showModal()
+{
+  $('#okModal').modal('show')
+  setTimeout(() => {
+    $('#okModal').modal('hide')
+  }, 2000);
+}
+
+  $('#status').change(function(){
+    var id= $(this).val();
+    if($(this).prop('checked'))
+    {
+      
+      $.ajax({
+                type:'POST',
+                url:'/status/{{$menu->link}}/'+id,
+                data:{
+                    _token:'{{ csrf_token() }}',
+                    status:1
+                },
+                success:function(res){
+                  showModal();
+                  console.log(res);
+                }
+      });
+    }
+    else
+    {
+      $.ajax({
+        type:'POST',
+        url:'/status/{{$menu->link}}/'+id,
+        data:{
+            _token:'{{ csrf_token() }}',
+            status:0
+        },
+        success:function(res){
+          showModal();
+          console.log(res);
+        }
+
+      });
+    }
+  });
+</script>
+
 @endsection

@@ -17,3 +17,5 @@ $("#imageUpload").change(function() {
     
     readURL(this);
 });
+
+

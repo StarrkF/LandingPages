@@ -42,6 +42,10 @@ Route::prefix('admin')->group(function(){
 });
 
 
+
+Route::post('status/{link}/{id}',[PageController::class,'changeStatus']);
+
+
 Route::get('den',function(){
 
     $test="test";

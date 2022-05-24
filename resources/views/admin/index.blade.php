@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
+  <title>Admin</title>
   <!--favicon-->
   <link rel="icon" href="{{ asset('panel/assets/images/favicon.ico') }}" type="image/x-icon">
   <!-- Vector CSS -->
@@ -67,12 +67,8 @@
   <script src="{{ asset('panel/assets/js/sidebar-menu.js') }}"></script>
   <!-- Custom scripts -->
   <script src="{{ asset('panel/assets/js/app-script.js') }}"></script>
-  <!-- Chart js -->
-  
-  <script src="{{ asset('panel/assets/plugins/Chart.js/Chart.min.js') }}"></script>
+
  
-  <!-- Index js -->
-  <script src="{{ asset('panel/assets/js/index.js') }}"></script>
   <script src="{{ asset('panel/assets/js/tool.js') }}"></script>
   <script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
 	</script>
