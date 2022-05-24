@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\AuthController;
 use App\Http\Controllers\Panel\MenuController;
 use App\Http\Controllers\Panel\PageController;
 use Illuminate\Support\Facades\Route;
@@ -15,44 +16,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//? AUTH
+Route::get('login',function(){return view('admin.auth.pages.login');})->name('get.login');
+Route::get('register',function(){return view('admin.auth.pages.register');})->name('get.register');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
+Route::post('login',[AuthController::class,'login'])->name('post.login');
+Route::post('register',[AuthController::class,'register'])->name('post.register');
 
 Route::prefix('admin')->group(function(){
 
-    //* INDEX
-    Route::get('/',function(){return view('admin.pages.dashboard');})->name('admin.home');
-    Route::get('menus',[MenuController::class,'index'])->name('admin.get.menu');
-    Route::get('/page/{link}',[PageController::class,'index'])->name('admin.get.page');
+    
 
-    //* STORE
-    Route::post('menus',[MenuController::class,'store'])->name('admin.store.menu');
-    Route::post('page/{link}',[PageController::class,'store'])->name('admin.store.page');
+    Route::middleware('auth')->group(function(){
+        //* INDEX
+        Route::get('/',function(){return view('admin.pages.dashboard');})->name('admin.home');
+        Route::get('menus',[MenuController::class,'index'])->name('admin.get.menu');
+        Route::get('/page/{link}',[PageController::class,'index'])->name('admin.get.page');
 
-    //* SHOW
-    Route::get('page/{link}/{id}',[PageController::class,'show'])->name('admin.show.page');
+        //* STORE
+        Route::post('menus',[MenuController::class,'store'])->name('admin.store.menu');
+        Route::post('page/{link}',[PageController::class,'store'])->name('admin.store.page');
 
-    //* UPDATE
-    Route::post('menu/name/{link}',[MenuController::class,'updateName'])->name('admin.update.menu.name');
-    Route::post('menu/number/{id}',[MenuController::class,'updateNumber'])->name('admin.update.menu.number');
-    Route::post('page/update/{link}/{id}',[PageController::class,'update'])->name('admin.update.page');
+        //* SHOW
+        Route::get('page/{link}/{id}',[PageController::class,'show'])->name('admin.show.page');
 
-    //* DESTROY
-    Route::get('menu/{link}',[MenuController::class,'delete'])->name('admin.delete.menu');
-    Route::get('page/delete/{link}/{id}',[PageController::class,'delete'])->name('admin.delete.page');
+        //* UPDATE
+        Route::post('menu/name/{link}',[MenuController::class,'updateName'])->name('admin.update.menu.name');
+        Route::post('menu/number/{id}',[MenuController::class,'updateNumber'])->name('admin.update.menu.number');
+        Route::post('page/update/{link}/{id}',[PageController::class,'update'])->name('admin.update.page');
+
+        //* DESTROY
+        Route::get('menu/{link}',[MenuController::class,'delete'])->name('admin.delete.menu');
+        Route::get('page/delete/{link}/{id}',[PageController::class,'delete'])->name('admin.delete.page');
+    });
 
 });
-
-
 
 Route::post('status/{link}/{id}',[PageController::class,'changeStatus']);
 
-
-Route::get('den',function(){
-
-    $test="test";
-    dd(public_path('upload\\'.$test));
-    $model_name = "App\Models\\".ucfirst('test');
-    
-    dd($model_name::get());
-
-});
 
