@@ -2,10 +2,13 @@
 
 @section('content')
 <div class="card">
+    <div class="card-header">
+      <h2>{{ucFirst($menu->name)}}</h2>
+    </div>
     <div class="card-body">
         <div class="row">
             <div class="col-6">
-                <div class="card-title">{{ucFirst($menu->name)}} Contets</div>
+                <div class="card-title">{{$menu->category->name}} <small>{{$menu->catid==1 ? "(Only the last record will appear)" : ""}}</small></div>
             </div>
             <div class="col-6 text-right">
                 <button data-toggle="modal" data-target="#modalInsert" class="btn btn-light">Add Content</button>
@@ -29,7 +32,7 @@
            <tbody>
                @foreach ($pages as $page)
                <tr>
-                   <td><img src="{{ asset($page->image) }}" class="img-thumbnail img-width"></td>
+                   <td><img src="{{ asset($page->image) }}" class="img-width rounded border border-dark"></td>
                    <td>{{$page->number}}</td>
                    <td>{{$page->title}}</td>
                    <td>{!! Str::length(strip_tags($page->content))>50 ?  Str::substr(strip_tags($page->content), 0,50)."..." : $page->content !!}</td>

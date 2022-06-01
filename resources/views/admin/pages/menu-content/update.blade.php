@@ -9,6 +9,7 @@
             <div class="row">
             
             <input type="hidden" name="menuid" value="{{$page->menu->id}}">
+            <input type="hidden" name="catid" value="{{$page->catid}}">
             <div class="form-group col-12">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" required id="title" name="title" value="{{$page->title}}">

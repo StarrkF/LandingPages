@@ -20,6 +20,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="catid">Category</label>
+                        <select class="form-control" name="catid" id="">
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                        
+                   </div>
+
+                    <div class="form-group">
                         <button type="submit" class="btn btn-light mt-3 px-4"><i class="icon-plus"></i> Add</button>
                     </div>
                 </form>
@@ -36,6 +46,7 @@
                     <thead>
                       <tr>
                         <th scope="col">Number</th>
+                        <th scope="col">Category</th>
                         <th scope="col">Name</th>
                         <th scope="col">Link</th>
                         <th scope="col">Delete</th>
@@ -50,6 +61,7 @@
                                     {{$menu->number}}
                                 </a>
                             </td>
+                            <td>{{$menu->category->name}}</td>
                             <td>
                                 <a href="" data-toggle="modal" data-target="#menuName{{$menu->id}}">
                                     <small><i class="mr-2 icon-pencil"></i></small> 

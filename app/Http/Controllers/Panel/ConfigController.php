@@ -15,6 +15,7 @@ class ConfigController extends Controller
         Schema::create($link, function (Blueprint $table) {
             $table->id();
             $table->foreignId('menuid')->constrained('menus')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('catid')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->text('content');
             $table->string('key')->nullable();
@@ -42,6 +43,12 @@ class ConfigController extends Controller
                 {
                     return $this->hasOne(Menu::class,"id","menuid");
                 }
+
+                public function Category()
+                {
+                    return $this->hasOne(Category::class,"id","catid");
+                }
+
             }';
         File::put(app_path('Models').'/'.ucfirst($link).'.php',$model_script);
    }

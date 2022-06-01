@@ -1,11 +1,12 @@
 <form action="{{route('admin.store.page',$menu->link)}}" method="POST" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="menuid" value="{{$menu->id}}">
+    <input type="hidden" name="catid" value="{{$menu->catid}}">
  <div class="modal fade bd-example-modal-xl" id="modalInsert" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document1">
       <div class="modal-content" style="background: black">
         <div class="modal-header">
-          <h5 class="modal-title" id="ModalLabel">Proje Ekle</h5>
+          <h5 class="modal-title" id="ModalLabel">Add Content</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

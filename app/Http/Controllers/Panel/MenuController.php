@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Requests\Panel\MenuRequest;
+use App\Models\Category;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -15,11 +16,13 @@ class MenuController extends ConfigController
     public function index()
     {
         $menus=Menu::orderBy('number','asc')->get();
-        return view('admin.pages.menu')->with('menus',$menus);
+        $categories=Category::get();
+        return view('admin.pages.menu')->with('menus',$menus)->with('categories',$categories);
     }
 
     public function store(MenuRequest $request)
     {
+        
         $link=Str::slug($request->name,'_');  
         Menu::create( $request->validated() +['link' => $link]);
         $this->createDBmodel($link);

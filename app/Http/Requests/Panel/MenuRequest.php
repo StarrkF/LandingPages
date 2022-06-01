@@ -26,6 +26,7 @@ class MenuRequest extends FormRequest
         $this->offsetUnset('_token');
         return [
             "name" => "required",
+            "catid" => "required",
             "number" => ['required','integer'],
         ];
     }

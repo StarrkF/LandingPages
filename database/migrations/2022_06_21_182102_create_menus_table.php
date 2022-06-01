@@ -15,6 +15,7 @@ class CreateMenusTable extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('catid')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
             $table->string('link');
             $table->integer('number');

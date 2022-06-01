@@ -59,9 +59,9 @@
 	margin-right: 5px;
 }
 .sidebar-menu li.sidebar-header {
-	padding: 10px 25px 10px 15px;
-	font-size: 12px;
-	color: rgba(255, 255, 255, 0.5);
+	padding: 15px 25px 10px 15px;
+	font-size: 16px;
+	color: #9c9486;
 }
 .sidebar-menu li>a>.fa-angle-left {
 	width: auto;
@@ -138,9 +138,9 @@
 	margin-right: 5px;
 }
 .sidebar-menu-rtl li.sidebar-header {
-	padding: 10px 15px 10px 25px;
-	font-size: 12px;
-	color: #4b646f;
+	padding: 15px 15px 10px 25px;
+	font-size: 16px;
+	color: #9c9486;
 	background: #1a2226;
 }
 .sidebar-menu-rtl li>a>.fa-angle-left {

@@ -16,9 +16,18 @@
        </a>
      </li>
 
-     <li class="sidebar-header">Pages</li>
 
-     @foreach ($menus as $menu)
+     <li class="sidebar-header">{{count($menus->where('catid',1))>0 ? 'Single Content' : ''}}</li>
+     @foreach ($menus->where('catid',1) as $menu)
+     <li>
+      <a href="{{route('admin.get.page',$menu->link)}}">
+        <i class="zmdi zmdi-view-dashboard"></i> <span>{{$menu->name}}</span>
+      </a>
+    </li>
+     @endforeach
+
+     <li class="sidebar-header">{{count($menus->where('catid',2))>0 ? 'Multiple Content' : ''}}</li>
+     @foreach ($menus->where('catid',2) as $menu)
      <li>
       <a href="{{route('admin.get.page',$menu->link)}}">
         <i class="zmdi zmdi-view-dashboard"></i> <span>{{$menu->name}}</span>

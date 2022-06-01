@@ -25,6 +25,7 @@ class PageRequest extends FormRequest
     {
         $this->offsetUnset('_token');
         return [
+            'catid' => 'required',
             'menuid' => 'required',
             'title' => 'required',
             'number' => ['required','integer'],
