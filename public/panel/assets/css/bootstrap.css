@@ -4881,8 +4881,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #7700ff;
+  border-color: #7700ff;
 }
 
 .page-item.disabled .page-link {

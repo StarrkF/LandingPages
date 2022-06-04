@@ -4,40 +4,40 @@
     @csrf
 <div class="card">
     <div class="card-body">
-        <div class="card-title"> Contets</div>
+        <div class="card-title"> İçerik</div>
         <hr>
             <div class="row">
             
             <input type="hidden" name="menuid" value="{{$page->menu->id}}">
             <input type="hidden" name="catid" value="{{$page->catid}}">
             <div class="form-group col-12">
-                <label for="title">Title</label>
+                <label for="title">Başlık</label>
                 <input type="text" class="form-control" required id="title" name="title" value="{{$page->title}}">
             </div>
     
 
             <div class="form-group col-12 col-md-4">
-                <label for="desc">Description</label>
+                <label for="desc">Açıklama</label>
                 <input type="text" class="form-control" id="desc" name="desc" value="{{$page->desc}}">
             </div>
     
             <div class="form-group col-12 col-md-4">
-                <label for="key">Key</label>
+                <label for="key">Anahtar</label>
                 <input type="text" class="form-control" id="key" name="key" value="{{$page->key}}">
             </div>
 
             <div class="form-group col-12 col-md-4">
-                <label for="number">Number</label>
+                <label for="number">Sıra</label>
                 <input type="number" class="form-control" required id="number" value="{{$page->number}}" required name="number">
             </div>
 
             <div class="form-group col-12 col-md-7">
-                <label for="content">Content</label>
+                <label for="content">İçerik</label>
                 <textarea name="content" id="content">{{$page->content}}</textarea>
             </div>
     
             <div class="form-group col-12 col-md-5">
-                <label for="imageUpload">Image</label>
+                <label for="imageUpload">Resim</label>
                 <div class="avatar-upload">
                     <div class="avatar-edit">
                         <input type='file' name="image" id="imageUpload" accept=".png, .jpg, .jpeg"/>
@@ -51,7 +51,7 @@
         </div>
      </div>
      <div class="card-footer">
-        <button type="submit" class="btn btn-lg btn-light float-right">Save</button>
+        <button type="submit" class="btn btn-lg btn-light float-right">Kaydet</button>
      </div>
 </div>
 </form>

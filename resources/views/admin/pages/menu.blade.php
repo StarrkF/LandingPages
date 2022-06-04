@@ -5,22 +5,22 @@
     <div class="col-md-4 col-12">
        <div class="card">
             <div class="card-body">
-                <div class="card-title">Add Menu</div>
+                <div class="card-title">Menü Ekle</div>
                 <hr>
                 <form action="{{route('admin.store.menu')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" required id="name" name="name" placeholder="Enter Menu Name">
+                        <label for="name">Menü adı</label>
+                        <input type="text" class="form-control" required id="name" name="name" placeholder="Menü adını giriniz">
                     </div>
 
                     <div class="form-group">
-                         <label for="number">Number</label>
-                         <input type="number" class="form-control" required id="number" name="number" placeholder="Enter Menu Number">
+                         <label for="number">Menü Sırası</label>
+                         <input type="number" class="form-control" required id="number" name="number" placeholder="Menü sırasını giriniz">
                     </div>
 
                     <div class="form-group">
-                        <label for="catid">Category</label>
+                        <label for="catid">Kategori</label>
                         <select class="form-control" name="catid" id="">
                             @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
@@ -30,7 +30,7 @@
                    </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-light mt-3 px-4"><i class="icon-plus"></i> Add</button>
+                        <button type="submit" class="btn btn-light mt-3 px-4"><i class="icon-plus"></i> Ekle</button>
                     </div>
                 </form>
              </div>
@@ -40,16 +40,16 @@
     <div class="col-md-8 col-12">
         <div class="card">
              <div class="card-body">
-                 <div class="card-title">Menus</div>
+                 <div class="card-title">Menüler</div>
                  <hr>
                  <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Sıra</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">İsim</th>
                         <th scope="col">Link</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Sil</th>
                       </tr>
                     </thead>
                     <tbody>

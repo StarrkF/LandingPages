@@ -1,5 +1,7 @@
 <?php
 
+use App\http\Controllers\App\CommentController;
+use App\http\Controllers\App\ContentController;
 use App\Http\Controllers\Panel\AuthController;
 use App\Http\Controllers\Panel\MenuController;
 use App\Http\Controllers\Panel\PageController;
@@ -16,16 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//? AUTH
-Route::get('login',function(){return view('admin.auth.pages.login');})->name('get.login');
-Route::get('register',function(){return view('admin.auth.pages.register');})->name('get.register');
-Route::get('logout',[AuthController::class,'logout'])->name('logout');
-Route::post('login',[AuthController::class,'login'])->name('post.login');
-Route::post('register',[AuthController::class,'register'])->name('post.register');
+
 
 Route::prefix('admin')->group(function(){
-
-    
 
     Route::middleware('auth')->group(function(){
         //* INDEX
@@ -51,6 +46,23 @@ Route::prefix('admin')->group(function(){
     });
 
 });
+
+//? AUTH
+Route::get('login',function(){return view('admin.auth.pages.login');})->name('get.login');
+Route::get('register',function(){return view('admin.auth.pages.register');})->name('get.register');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
+Route::post('login',[AuthController::class,'login'])->name('post.login');
+Route::post('register',[AuthController::class,'register'])->name('post.register');
+
+//? APP
+
+Route::get('/',function(){return view('app.pages.home');})->name('app.home');
+Route::post('/comment',[CommentController::class,'createcomments'])->name('app.post.comment');
+Route::get('/{link}',[ContentController::class,'index'])->name('app.get.content');
+Route::get('/{link}/{id}',[ContentController::class,'show'])->name('app.get.content.detail');
+
+
+
 
 Route::post('status/{link}/{id}',[PageController::class,'changeStatus']);
 

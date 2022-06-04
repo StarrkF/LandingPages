@@ -24,7 +24,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme2">
+<body class="bg-theme bg-theme4">
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>

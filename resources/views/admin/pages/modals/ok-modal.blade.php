@@ -5,10 +5,10 @@
 				<div class="icon-box">
 					<i class="icon-like"></i>
 				</div>				
-				<h4 class="modal-title w-100">Changed</h4>	
+				<h4 class="modal-title w-100">Değiştirildi</h4>	
 			</div>
 			<div class="modal-body">
-				<p class="text-center">Status was changed.</p>
+				<p class="text-center">Durum Değiştirildi.</p>
 			</div>
 		</div>
 	</div>

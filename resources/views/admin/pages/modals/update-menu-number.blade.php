@@ -4,14 +4,14 @@
     <div class="modal-dialog" role="document1">
       <div class="modal-content" style="background: black">
         <div class="modal-header">
-          <h5 class="modal-title" id="ModalLabel">Change Menu Number</h5>
+          <h5 class="modal-title" id="ModalLabel">Menü numarasını değiştir</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">    
                 <div class="form-group col-12 my-2">
-                    <label for="number">Menu Number</label>
+                    <label for="number">Menü Numarası</label>
                     <input type="number" class="form-control" required name="number" value="{{$menu->number}}">
                 </div>
         </div>

@@ -28,7 +28,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme2">
+<body class="bg-theme bg-theme4">
  
 <!-- Start wrapper-->
  <div id="wrapper">

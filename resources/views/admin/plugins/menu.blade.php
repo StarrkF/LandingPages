@@ -9,15 +9,15 @@
     </a>
   </div>
   <ul class="sidebar-menu do-nicescrol">
-     <li class="sidebar-header">Menu Contol</li>
+     <li class="sidebar-header">Menü Kontrolcüsü</li>
      <li>
        <a href="{{route('admin.get.menu')}}">
-         <i class="zmdi zmdi-view-dashboard"></i> <span>Menus</span>
+         <i class="zmdi zmdi-view-dashboard"></i> <span>Menüler</span>
        </a>
      </li>
 
 
-     <li class="sidebar-header">{{count($menus->where('catid',1))>0 ? 'Single Content' : ''}}</li>
+     <li class="sidebar-header">{{count($menus->where('catid',1))>0 ? 'Tekli İçerik' : ''}}</li>
      @foreach ($menus->where('catid',1) as $menu)
      <li>
       <a href="{{route('admin.get.page',$menu->link)}}">
@@ -26,7 +26,7 @@
     </li>
      @endforeach
 
-     <li class="sidebar-header">{{count($menus->where('catid',2))>0 ? 'Multiple Content' : ''}}</li>
+     <li class="sidebar-header">{{count($menus->where('catid',2))>0 ? 'Çoklu İçerik' : ''}}</li>
      @foreach ($menus->where('catid',2) as $menu)
      <li>
       <a href="{{route('admin.get.page',$menu->link)}}">

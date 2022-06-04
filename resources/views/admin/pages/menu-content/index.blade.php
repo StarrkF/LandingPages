@@ -11,7 +11,7 @@
                 <div class="card-title">{{$menu->category->name}} <small>{{$menu->catid==1 ? "(Only the last record will appear)" : ""}}</small></div>
             </div>
             <div class="col-6 text-right">
-                <button data-toggle="modal" data-target="#modalInsert" class="btn btn-light">Add Content</button>
+                <button data-toggle="modal" data-target="#modalInsert" class="btn btn-light">İçerik Ekle</button>
             </div>
             @include('admin.pages.menu-content.insert')
         </div>
@@ -21,12 +21,12 @@
         <table class="table table-hover table-image">
            <thead>
              <tr>
-               <th scope="col">Image</th>
-               <th scope="col">Number</th>
-               <th scope="col">Title</th>
-               <th scope="col">Content</th>
-               <th scope="col">Status</th>
-               <th scope="col">Action</th>
+               <th scope="col">Resim</th>
+               <th scope="col">Sıra</th>
+               <th scope="col">Başlık</th>
+               <th scope="col">İçerik</th>
+               <th scope="col">Durum</th>
+               <th scope="col">İşlem</th>
              </tr>
            </thead>
            <tbody>

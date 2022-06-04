@@ -4,19 +4,19 @@
     <div class="modal-dialog" role="document1">
       <div class="modal-content" style="background: black">
         <div class="modal-header">
-          <h5 class="modal-title" id="ModalLabel">Change Menu Name</h5>
+          <h5 class="modal-title" id="ModalLabel">Menü Adını Değiştir</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">    
                 <div class="form-group col-12 my-2">
-                    <label for="name">Menu Name</label>
+                    <label for="name">Menu Adı</label>
                     <input type="text" class="form-control" required name="name" value="{{$menu->name}}">
                 </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-lg btn-light float-left">Save</button>
+            <button class="btn btn-lg btn-light float-left">Kaydet</button>
         </div>
       </div>
     </div>

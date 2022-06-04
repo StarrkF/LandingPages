@@ -36,7 +36,7 @@
            {{-- <li class="dropdown-divider"></li>
            <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li> --}}
            <li class="dropdown-divider"></li>
-           <a href="{{route('logout')}}"> <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a>
+           <a href="{{route('logout')}}"> <li class="dropdown-item"><i class="icon-power mr-2"></i> Çıkış Yap</li></a>
          </ul>
        </li>
      </ul>
