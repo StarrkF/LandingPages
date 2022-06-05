@@ -22,7 +22,7 @@ class ConfigController extends Controller
             $table->string('desc')->nullable();
             $table->string('image')->nullable();
             $table->integer('number');
-            $table->enum('status',[true,false])->default(true);
+            $table->enum('status',[1,0])->default(1);
             $table->timestamps();
         });
 

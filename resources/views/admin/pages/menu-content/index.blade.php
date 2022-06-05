@@ -38,8 +38,8 @@
                    <td>{!! Str::length(strip_tags($page->content))>50 ?  Str::substr(strip_tags($page->content), 0,50)."..." : $page->content !!}</td>
                    <td>
                     <div class="custom-control custom-switch">
-                      <input type="checkbox" class="custom-control-input" {{$page->status==1 ? 'checked' : ''}} id="status" value="{{$page->id}}">
-                      <label class="custom-control-label" for="status"></label>
+                      <input type="checkbox" class="custom-control-input status" {{$page->status==1 ? 'checked' : ''}} id="stat{{$page->id}}" value="{{$page->id}}">
+                      <label class="custom-control-label" for="stat{{$page->id}}"></label>
                     </div> 
                    </td>
                    <td>
@@ -66,7 +66,7 @@ function showModal()
   }, 2000);
 }
 
-  $('#status').change(function(){
+  $('.status').change(function(){
     var id= $(this).val();
     if($(this).prop('checked'))
     {
