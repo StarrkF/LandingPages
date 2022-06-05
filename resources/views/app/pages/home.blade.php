@@ -54,7 +54,7 @@
                     <div class="services__title">
                         <div class="section-title">
                             <span>Our services</span>
-                            <h2>NABER</h2>
+                            <h2>Sample</h2>
                         </div>
                         <p>If you hire a videographer of our team you will get a video professional to make a custom
                             video for your business and, once the project is over.</p>

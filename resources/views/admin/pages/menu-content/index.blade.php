@@ -8,7 +8,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-6">
-                <div class="card-title">{{$menu->category->name}} <small>{{$menu->catid==1 ? "(Only the last record will appear)" : ""}}</small></div>
+                <div class="card-title">{{$menu->category->name}} <small>{{$menu->catid==1 ? "(Sadece eklediğiniz son kayıt gözükür)" : ""}}</small></div>
             </div>
             <div class="col-6 text-right">
                 <button data-toggle="modal" data-target="#modalInsert" class="btn btn-light">İçerik Ekle</button>

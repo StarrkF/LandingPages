@@ -12,7 +12,7 @@ class PageController extends ConfigController
     {
         
         $model=$this->dynamicModel($link);
-        $pages=$model::orderBy('number')->get();
+        $pages=$model::orderBy('number','asc')->get();
         $menu=Menu::where('link',$link)->with('category')->first();
         return view('admin.pages.menu-content.index')->with(['menu'=>$menu,'pages'=>$pages]);
     }

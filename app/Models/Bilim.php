@@ -5,10 +5,10 @@
             use Illuminate\Database\Eloquent\Factories\HasFactory;
             use Illuminate\Database\Eloquent\Model;
     
-            class Deneme extends Model
+            class Bilim extends Model
             {
                 use HasFactory;
-                protected $table="deneme";
+                protected $table="bilim";
                 protected $guarded=[];
     
                 public function menu()

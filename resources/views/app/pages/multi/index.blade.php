@@ -29,7 +29,7 @@
                             <h4>{{$info->title}}</h4>
                             <ul>
                                 <li>{{$info->created_at->format('m.h d/m/y')}}</li>
-                                <li>05 Comment</li>
+                            
                             </ul>
                             <p>{!! Str::length($info->content)>100 ? Str::substr(strip_tags($info->content), 0, 100).'...' : $info->content!!}</p>
                             

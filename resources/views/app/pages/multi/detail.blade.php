@@ -63,7 +63,7 @@
                                 <input type="text" name="email" placeholder="Email">
                             </div>
                             <textarea name="comment" placeholder="Comment"></textarea>
-                            <button type="submit" class="site-btn">Send Message</button>
+                            <button type="submit" class="site-btn">Mesaj Gönder</button>
                         </form>
                     </div>
                     <div class="blog__details__comment my-5">

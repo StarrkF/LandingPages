@@ -27,7 +27,8 @@ class ContentController extends ConfigController
         }
         if($menu->catid==2)
         {
-            $page=$this->dynamicModel($link)::where('status',1)->with('menu')->get();
+            $page=$this->dynamicModel($link)::where('status',1)->with('menu')->orderBy('number','asc')->get();
+            
         }
 
         return view('app.pages.content')->with('page',$page)->with('menu',$menu);
